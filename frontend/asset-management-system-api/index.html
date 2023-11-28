@@ -37,8 +37,8 @@
                     </select>
                 </td>
                 <td><input v-model="newAsset.cost" placeholder="Cost"></td>
-                <td><input v-model="newAsset.responsible_person" placeholder="Responsible Person"></td>
-                <td><input v-model="newAsset.additional_information" placeholder="Additional Information"></td>
+                <td><input v-model="newAsset.responsiblePerson" placeholder="Responsible Person"></td>
+                <td><input v-model="newAsset.additionalInformation" placeholder="Additional Information"></td>
                 <td><button @click="addAsset">Add Asset</button></td>
             </tr>
             <tr v-for="asset in assets" :key="asset.id">
@@ -78,18 +78,18 @@
                 </td>
                 <td>
                     <span v-if="isEditing && editingAsset.id === asset.id">
-                        <input v-model="editingAsset.responsible_person">
+                        <input v-model="editingAsset.responsiblePerson">
                     </span>
                     <span v-else>
-                        {{ asset.responsible_person }}
+                        {{ asset.responsiblePerson }}
                     </span>
                 </td>
                 <td>
                     <span v-if="isEditing && editingAsset.id === asset.id">
-                        <input v-model="editingAsset.additional_information">
+                        <input v-model="editingAsset.additionalInformation">
                     </span>
                     <span v-else>
-                        {{ asset.additional_information }}
+                        {{ asset.additionalInformation }}
                     </span>
                 </td>
                 <td v-if="isAuthenticated && currentRole === 'admin'">
@@ -117,8 +117,8 @@
                 <p>Name: {{ assetInModal.name }}</p>
                 <p>State: {{ assetInModal.state }}</p>
                 <p>Cost: {{ assetInModal.cost }}</p>
-                <p>Responsible Person: {{ assetInModal.responsible_person }}</p>
-                <p>Additional Information: {{ assetInModal.additional_information }}</p>
+                <p>Responsible Person: {{ assetInModal.responsiblePerson }}</p>
+                <p>Additional Information: {{ assetInModal.additionalInformation }}</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -136,5 +136,3 @@
 <!-- Вся информация почти была взята из интернета, под основу был взят мой проект, который мы делали https://github.com/artjomrozhkov/games-api.
 Понятное дело с какой то частью кода мне помогал ChatGPT, но не весь код был написан через него.
 По сути тут 75% кода точно сделано с помощью проекта на GitHub -->
-
-

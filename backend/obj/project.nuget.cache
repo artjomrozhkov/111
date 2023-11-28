@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YI8XgkyTbkwd+8lRHpCuo9MkT9vyvcRt+OuRG3qM0GhehyX2hGJXXHQaMjWV0V18MxwByti25LjpZ4pV6PHv6A==",
+  "dgSpecHash": "x+Ec7meCDALHQUAIfeb7doaBDIYV+0yJHmWpCnpMko0wqHJj7Y4sKjQ4mChoIGOc3XTA7eej7ULKwqLW4Yb0dQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\opilane\\source\\repos\\asset-management-system-orm\\asset-management-system-orm.csproj",
+  "projectFilePath": "C:\\Users\\opilane\\source\\repos\\111\\backend\\asset-management-system-orm.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\opilane\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\opilane\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

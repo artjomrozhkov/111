@@ -3729,11 +3729,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\opilane\\source\\repos\\asset-management-system-orm\\asset-management-system-orm.csproj",
+      "projectUniqueName": "C:\\Users\\opilane\\source\\repos\\111\\backend\\asset-management-system-orm.csproj",
       "projectName": "asset-management-system-orm",
-      "projectPath": "C:\\Users\\opilane\\source\\repos\\asset-management-system-orm\\asset-management-system-orm.csproj",
+      "projectPath": "C:\\Users\\opilane\\source\\repos\\111\\backend\\asset-management-system-orm.csproj",
       "packagesPath": "C:\\Users\\opilane\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\opilane\\source\\repos\\asset-management-system-orm\\obj\\",
+      "outputPath": "C:\\Users\\opilane\\source\\repos\\111\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3749,6 +3749,7 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3805,7 +3806,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -17,25 +17,19 @@ const app = Vue.createApp({
                 password: ''
             },
             loginError: '',
-            assets: [],
+            assets: [], 
             newAsset: { number: '', name: '', state: 'New', cost: '', responsible_person: '', additional_information: '' },
             editingAsset: null,
             isEditing: false
         };
     },
     async created() {
+        this.assets = await (await fetch('https://localhost:7149/AssetManagement/assets')).json();
+
         this.users = await (await fetch('https://localhost:7149/AssetManagement/users')).json();
         if (!this.isAuthenticated && window.location.pathname !== '/login.html' && window.location.pathname !== '/register.html') {
             window.location.href = '/login.html';
         }
-
-        if (this.currentRole == 'admin') {
-            this.assets = await (await fetch('https://localhost:7149/AssetManagement/assets')).json();
-        } else {
-            this.assets = JSON.parse(this.userAssets);
-        }
-
-        console.log(this.userAssets);
     },
     methods: {
         toggleShowLogin() {
@@ -110,7 +104,7 @@ const app = Vue.createApp({
         },
         async login() {
             try {
-                const response = await fetch('https://localhost:7149/AssetManagement/login', {
+                const response = await fetch('https://localhost:7149/AssetManagement/login/' + this.loginData.email + '/' + this.loginData.password, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -121,13 +115,12 @@ const app = Vue.createApp({
                 if (response.ok) {
                     const responseData = await response.json();
                     this.isAuthenticated = true;
-                    this.currentRole = responseData.role;
+                    this.currentRole = responseData.user.role;
                     this.loginData = { email: '', password: '' };
-                    localStorage.setItem('userAssets', JSON.stringify(responseData.assets));
         
                     if (this.isAuthenticated) {
                         alert('Login successful! You are now logged in.');
-                        window.location.href = 'http://localhost:7149/index.html';
+                        window.location.href = 'http://localhost:8080/index.html';
                     }
                 } else {
                     alert('Login failed. Please check your email and password.');
@@ -140,7 +133,7 @@ const app = Vue.createApp({
         },
         async register() {
             try {
-                const response = await fetch('http://localhost:7149/register', {
+                const response = await fetch('https://localhost:7149/AssetManagement/register/' + this.registrationData.username + '/' + this.registrationData.email + '/' + this.registrationData.password, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -155,7 +148,7 @@ const app = Vue.createApp({
                     
                     this.registrationSuccess = true;
                     alert('Registration successful!');
-                    window.location.href = 'http://localhost:7149/login.html';
+                    window.location.href = 'http://localhost:8080/login.html';
                     this.currentRole = responseData.role;
                     this.registrationData = { username: '', email: '', password: '' };
                 } else {
@@ -174,7 +167,7 @@ const app = Vue.createApp({
             localStorage.removeItem('role');
             this.isAuthenticated = false;
             this.currentRole = null;
-            window.location.href = 'http://localhost:7149/login.html';
+            window.location.href = 'http://localhost:8080/login.html';
         },
         moveRow(asset, offset) {
             const index = this.assets.findIndex(a => a.id === asset.id);

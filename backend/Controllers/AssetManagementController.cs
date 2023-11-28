@@ -20,6 +20,7 @@ namespace asset_management_system_orm.Controllers
             _context = context;
         }
 
+
         [HttpGet("assets")]
         public ActionResult<IEnumerable<Asset>> GetAssets()
         {
@@ -119,7 +120,7 @@ namespace asset_management_system_orm.Controllers
                 id = user.Id,
                 name = user.Name,
                 email = user.Email,
-                isAdmin = user.IsAdmin
+                role = user.Role
             };
 
             return Ok(new { message = "Login successful", user = userResponse });
@@ -140,11 +141,11 @@ namespace asset_management_system_orm.Controllers
                 return Conflict(new { error = "This email has already been taken" });
             }
 
-            var newUser = new User(name, email, password, isAdmin: false);
+            var newUser = new User(name, email, password, role: "user");
             _context.Users.Add(newUser);
             _context.SaveChanges();
 
-            return Ok(new { message = "Login successful" });
+            return Ok(new { message = "Register successful" });
         }
         [HttpGet("users")]
         public List<User> Get()
